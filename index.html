@@ -14,12 +14,12 @@
   
     <div class="pricing-toggle-wrapper">
       <div class="pricing-toggle">
-        <button>Annually</button>
-          <input type="checkbox" id="subscription-term">
+        <button id="select-annually">Annually</button>
+          <input type="checkbox" id="subscription-term" checked="true">
           <label for="subscription-term">
             <span></span>
           </label>
-          <button>Monthly</button>
+          <button id="select-monthly">Monthly</button>
       </div>
     </div>
 
@@ -57,5 +57,40 @@
       </p>
     </footer>
   </div>
+
+  <script>
+    const annualButton = document.querySelector('#select-annually');
+    const monthButton = document.querySelector('#select-monthly');
+    const tog = document.querySelector('.pricing-toggle [type="checkbox"]');
+    const prices = document.querySelectorAll('span.card__price');
+
+    function handleAnnually() {
+      if (tog.checked === true) tog.checked = !tog.checked;
+
+      prices.forEach( price => {
+        price.innerHTML = `<small>&dollar;</small>${price.dataset.priceAnnual}`;
+      }); 
+    }
+    
+    function handleMonthly() {
+      if (tog.checked === false) tog.checked = !tog.checked;
+  
+      prices.forEach( price => {
+        price.innerHTML = `<small>&dollar;</small>${price.dataset.priceMonth}`;
+      });
+    }
+
+    function handleToggle() {
+        if (event.target.checked) { // toggle true = monthly
+          handleMonthly();
+        } else {
+          handleAnnually();
+        }
+    }
+
+    tog.addEventListener('input', handleToggle);
+    annualButton.addEventListener('click', handleAnnually);
+    monthButton.addEventListener('click', handleMonthly);
+  </script>
 </body>
 </html>

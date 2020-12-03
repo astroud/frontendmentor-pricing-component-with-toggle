@@ -83,7 +83,6 @@ h2 {
   line-height: 71px;
   letter-spacing: -2.16px;
   color: #4A4D60;
-
 }
 
 small {
@@ -164,6 +163,7 @@ button:hover {
   color: #6D72DE;
   background: #fff;
   border: 1px solid #6D72DE;
+  transition: all 0.15s ease-in;
 }
 
 footer {
