@@ -202,3 +202,84 @@ footer a:hover {
     padding-top: 24px;
   }
 }
+
+.pricing-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 80px;
+}
+
+.pricing-toggle {
+  width: 327px;
+  display: flex;
+}
+
+.pricing-toggle button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #6E728E;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+label {
+  cursor: pointer;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.pricing-toggle li {
+  position: relative;
+}
+
+.pricing-toggle label {
+  display: flex;
+}
+
+.pricing-toggle span:last-child {
+  position: relative;
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #A2A7F0 0%, #696EDD 100%);
+  transition: all 0.3s;
+}
+
+.pricing-toggle span:last-child:hover {
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.pricing-toggle span:last-child::before,
+.pricing-toggle span:last-child::after {
+  content: "";
+  position: absolute;
+}
+
+.pricing-toggle span:last-child::before {
+  left: 4px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.pricing-toggle [type="checkbox"]:checked + label span:last-child::before {
+  transform: translateX(24px);
+}
